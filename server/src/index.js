@@ -28,7 +28,7 @@ app.use(
     //  origin: 
     methods: ["GET", "PUT", "POST", "DELETE"],
     //  allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Access-Control-Allow-Origin"],
-    credentials: true,
+    // credentials: true,
     // maxAge: 5000,
     // exposedHeaders: ["*", "Authorization"],
   })
