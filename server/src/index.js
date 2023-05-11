@@ -20,19 +20,19 @@ const initialData = require("./routes/initialData");
 const foodModel = require("./models/food");
 const app = express();
 // env.config();
-
-app.use(
-  cors({
-    //   origin: "http://localhost:3000",
-    origin: "https://gharwala-khana.vercel.app/",
-    //  origin: 
-    methods: ["GET", "PUT", "POST", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Acess-Control-Allow-Origin' "],
-    credentials: true,
-    maxAge: 5000,
-    exposedHeaders: ["*", "Authorization"],
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     //   origin: "http://localhost:3000",
+//     origin: "https://gharwala-khana.vercel.app/",
+//     //  origin: 
+//     methods: ["GET", "PUT", "POST", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Acess-Control-Allow-Origin' "],
+//     credentials: true,
+//     maxAge: 5000,
+//     exposedHeaders: ["*", "Authorization"],
+//   })
+// );
 app.use(express.json());
 app.use(cookieParser());
 
