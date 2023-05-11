@@ -27,7 +27,7 @@ app.use(
     origin: "https://gharwala-khana.vercel.app",
     //  origin: 
     methods: ["GET", "PUT", "POST", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Acess-Control-Allow-Origin' "],
+    allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Acess-Control-Allow-Origin"],
     credentials: true,
     maxAge: 5000,
     exposedHeaders: ["*", "Authorization"],
@@ -63,7 +63,7 @@ new CronJob(
   "Asia/Kolkata"
 );
 app.get('/', (req, res) => {
-  res.send('This is our OnlineTiffin web api web App api');
+  res.send('This is our Gharwala khana web api web App api');
 });
 
 // app.use("/api/v1/user", user);
