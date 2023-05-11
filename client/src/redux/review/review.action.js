@@ -1,42 +1,45 @@
 import axios from 'axios'
-import { reviewRequest,providerReviewRequest,reviewSuccess,reviewFail, addReviewSuccess, allReviewSuccess } from './review.reducer'
+import { reviewRequest, providerReviewRequest, reviewSuccess, reviewFail, addReviewSuccess, allReviewSuccess } from './review.reducer'
 
-export const addReview = (data) => async(dispatch)=>{
+export const addReview = (data) => async (dispatch) => {
     try {
         dispatch(reviewRequest())
         const review = await axios({
-            method:"POST",
-            url:"http://localhost:4000/api/v1/review",
+            method: "POST",
+            //  url:"http://localhost:4000/api/v1/review",
+            url: "https://gharwalakhanabackend.onrender.com/review",
             data
         })
         dispatch(addReviewSuccess(review.data))
     } catch (error) {
-        return dispatch(reviewFail(error.response.data.message));    
+        return dispatch(reviewFail(error.response.data.message));
     }
 }
-export const getAllReview = () => async(dispatch)=>{
+export const getAllReview = () => async (dispatch) => {
     try {
         dispatch(reviewRequest())
         const review = await axios({
-            method:"GET",
-            url:`http://localhost:4000/api/v1/review`,
+            method: "GET",
+            //   url: `http://localhost:4000/api/v1/review`,
+            url: `https://gharwalakhanabackend.onrender.com/review`,
         })
         dispatch(allReviewSuccess(review.data))
     } catch (error) {
-        return dispatch(reviewFail());    
+        return dispatch(reviewFail());
     }
 }
-export const getProvidersReview = (_id) => async(dispatch)=>{
+export const getProvidersReview = (_id) => async (dispatch) => {
     try {
         dispatch(providerReviewRequest())
         console.log(_id)
         const review = await axios({
-            method:"GET",
-            url:`http://localhost:4000/api/v1/review/${_id}`,
+            method: "GET",
+            //  url: `http://localhost:4000/api/v1/review/${_id}`,
+            url: `https://gharwalakhanabackend.onrender.com/review/${_id}`,
         })
         console.log(review.data)
         dispatch(reviewSuccess(review.data))
     } catch (error) {
-        return dispatch(reviewFail());    
+        return dispatch(reviewFail());
     }
 }
