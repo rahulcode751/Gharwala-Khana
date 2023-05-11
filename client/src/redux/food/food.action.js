@@ -20,7 +20,7 @@ export const getFoodById = (_id) => async (dispatch) => {
         const food = await axios({
             method: "GET",
             // url: ` http://localhost:4000/api/v1/food/${_id}`
-            url: ` https://gharwalakhanabackend.onrender.com/food/${_id}`
+            url: `https://gharwalakhanabackend.onrender.com/food/${_id}`
         })
         return dispatch(getFoodByIdSuccess(food.data))
     } catch (error) {
