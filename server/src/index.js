@@ -27,10 +27,10 @@ app.use(
     origin: "https://gharwala-khana.vercel.app",
     //  origin: 
     methods: ["GET", "PUT", "POST", "DELETE"],
-    //  allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Acess-Control-Allow-Origin' "],
+    allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Acess-Control-Allow-Origin' "],
     credentials: true,
-    // maxAge: 5000,
-    // exposedHeaders: ["*", "Authorization"],
+    maxAge: 5000,
+    exposedHeaders: ["*", "Authorization"],
   })
 );
 app.use(express.json());
