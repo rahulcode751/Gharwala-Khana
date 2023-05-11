@@ -22,7 +22,7 @@ const app = express();
 // env.config();
 // app.use(cors());
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://gharwala-khana.vercel.app'],
+  origin: ['http://localhost:3000', 'https://gharwala-khana.vercel.app'],
   methods: ['GET', 'PUT', 'POST', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token'],
   credentials: true,

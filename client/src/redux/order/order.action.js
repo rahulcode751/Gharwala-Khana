@@ -6,7 +6,7 @@ export const getAllOrders = () => async (dispatch) => {
         const orders = await axios({
             method: "GET",
             //  url: `http://localhost:4000/api/v1/order/provider`
-            url: `http://gharwalakhanabackend.onrender.com/order/provider`
+            url: `https://gharwalakhanabackend.onrender.com/order/provider`
         })
         dispatch(orderSuccess(orders.data))
     } catch (error) {
@@ -19,7 +19,7 @@ export const getUserOrders = () => async (dispatch) => {
         const orders = await axios({
             method: "GET",
             //  url: "http://localhost:4000/api/v1/order/user"
-            url: "http://gharwalakhanabackend.onrender.com/order/user"
+            url: "https://gharwalakhanabackend.onrender.com/order/user"
         })
         console.log(orders.data)
         return dispatch(userOrderSuccess(orders.data));
@@ -33,7 +33,7 @@ export const addOrder = (data) => async (dispatch) => {
         const order = await axios({
             method: "POST",
             // url: `http://localhost:4000/api/v1/order`,
-            url: `http://gharwalakhanabackend.onrender.com/order`,
+            url: `https://gharwalakhanabackend.onrender.com/order`,
             data
         })
         console.log(order)
@@ -48,7 +48,7 @@ export const updateOrder = (data) => async (dispatch) => {
         const order = await axios({
             method: "POST",
             //   url: `http://localhost:4000/api/v1/order/updateStatus`,
-            url: `http://gharwalakhanabackend.onrender.com/order/updateStatus`,
+            url: `https://gharwalakhanabackend.onrender.com/order/updateStatus`,
             data
         })
         console.log(order)
@@ -63,7 +63,7 @@ export const updateUserOrder = (data) => async (dispatch) => {
         const order = await axios({
             method: "POST",
             //  url: `http://localhost:4000/api/v1/order/updateStatus`,
-            url: `http://gharwalakhanabackend.onrender.com/order/updateStatus`,
+            url: `https://gharwalakhanabackend.onrender.com/order/updateStatus`,
             data
         })
         console.log(order)
@@ -78,7 +78,7 @@ export const deleteOrder = (data) => async (dispatch) => {
         const order = await axios({
             method: "DELETE",
             //    url: `http://localhost:4000/api/v1/order/${data.order._id}`
-            url: `http://gharwalakhanabackend.onrender.com/order/${data.order._id}`
+            url: `https://gharwalakhanabackend.onrender.com/order/${data.order._id}`
         })
     } catch (error) {
         return dispatch(orderFail(error.response.data.message));

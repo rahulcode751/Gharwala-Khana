@@ -8,7 +8,7 @@ export const login = (user) => async (dispatch) => {
         const userData = await axios({
             method: "POST",
             //   url: "http://localhost:4000/api/v1/user/login",
-            url: "http://gharwalakhanabackend.onrender.com/user/login",
+            url: "https://gharwalakhanabackend.onrender.com/user/login",
             data: user,
             config
         })
@@ -24,7 +24,7 @@ export const signUp = (user) => async (dispatch) => {
         const userData = await axios({
             method: "POST",
             //  url: "http://localhost:4000/api/v1/user/signup",
-            url: "http://gharwalakhanabackend.onrender.com/user/signup",
+            url: "https://gharwalakhanabackend.onrender.com/user/signup",
             data: user,
             config
         })
@@ -41,7 +41,7 @@ export const logout = () => async (dispatch) => {
         await axios({
             method: "GET",
             //    url: "http://localhost:4000/api/v1/user/logout",
-            url: "http://gharwalakhanabackend.onrender.com/user/logout",
+            url: "https://gharwalakhanabackend.onrender.com/user/logout",
             config
         })
         return dispatch(userLogout())
@@ -55,7 +55,7 @@ export const getUserDetails = () => async (dispatch) => {
         const userData = await axios({
             method: "GET",
             //  url: "http://localhost:4000/api/v1/user/me",
-            url: "http://gharwalakhanabackend.onrender.com/user/me",
+            url: "https://gharwalakhanabackend.onrender.com/user/me",
         })
         return dispatch(userSuccess(userData.data))
     } catch (error) {
