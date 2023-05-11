@@ -35,7 +35,11 @@ const app = express();
 // );
 var corsOptions = {
   origin: "https://gharwala-khana.vercel.app",
-  credentials: true
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
+  credentials: true,
+  maxAge: 5000,
+  exposedHeaders: ["*", "Authorization"],
 }
 
 app.use(cors(corsOptions));
