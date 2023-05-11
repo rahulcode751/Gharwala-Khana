@@ -23,7 +23,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    //   origin: "http://localhost:3000",
+    origin: "https://gharwalakhanabackend.onrender.com/",
     //  origin: 
     methods: ["GET", "PUT", "POST", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
