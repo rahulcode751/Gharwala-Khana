@@ -6,8 +6,8 @@ export const getInitialData = async (dispatch) => {
         dispatch(initialDataRequest());
         const data = await axios({
             method: "GET",
-            //  url: "http://localhost:4000/api/v1/initialData"
-            url: "https://gharwalakhanabackend.onrender.com/initialData"
+            url: "http://localhost:4000/api/v1/initialData"
+            //url: "https://gharwalakhanabackend.onrender.com/initialData"
         })
         dispatch(initialDataSuccess(data.data))
     } catch (error) {

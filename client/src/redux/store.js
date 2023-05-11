@@ -5,11 +5,11 @@ import foodSlice from './food/food.reducer'
 import orderSlice from './order/order.reducer'
 import reviewSlice from './review/review.reducer'
 export const store = configureStore({
-    reducer:{
-        user:userSlice,
-        provider:providerSlice,
-        foods:foodSlice,
-        orders:orderSlice,
-        reviews:reviewSlice
+    reducer: {
+        user: userSlice,
+        provider: providerSlice,
+        foods: foodSlice,
+        orders: orderSlice,
+        reviews: reviewSlice
     }
 });

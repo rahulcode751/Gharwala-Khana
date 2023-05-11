@@ -6,8 +6,8 @@ export const addReview = (data) => async (dispatch) => {
         dispatch(reviewRequest())
         const review = await axios({
             method: "POST",
-            //  url:"http://localhost:4000/api/v1/review",
-            url: "https://gharwalakhanabackend.onrender.com/review",
+            url: "http://localhost:4000/api/v1/review",
+            //url: "https://gharwalakhanabackend.onrender.com/review",
             data
         })
         dispatch(addReviewSuccess(review.data))
@@ -20,8 +20,8 @@ export const getAllReview = () => async (dispatch) => {
         dispatch(reviewRequest())
         const review = await axios({
             method: "GET",
-            //   url: `http://localhost:4000/api/v1/review`,
-            url: `https://gharwalakhanabackend.onrender.com/review`,
+            url: `http://localhost:4000/api/v1/review`,
+            //url: `https://gharwalakhanabackend.onrender.com/review`,
         })
         dispatch(allReviewSuccess(review.data))
     } catch (error) {
@@ -34,8 +34,8 @@ export const getProvidersReview = (_id) => async (dispatch) => {
         console.log(_id)
         const review = await axios({
             method: "GET",
-            //  url: `http://localhost:4000/api/v1/review/${_id}`,
-            url: `https://gharwalakhanabackend.onrender.com/review/${_id}`,
+            url: `http://localhost:4000/api/v1/review/${_id}`,
+            //url: `https://gharwalakhanabackend.onrender.com/review/${_id}`,
         })
         console.log(review.data)
         dispatch(reviewSuccess(review.data))

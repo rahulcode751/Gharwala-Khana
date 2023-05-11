@@ -21,36 +21,23 @@ const foodModel = require("./models/food");
 const app = express();
 // env.config();
 // app.use(cors());
-// app.use(
-//   cors({
-//     //   origin: "http://localhost:3000",
-//     origin: "https://gharwala-khana.vercel.app",
-//     //  origin: 
-//     methods: ["GET", "PUT", "POST", "DELETE"],
-//     //  allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Access-Control-Allow-Origin"],
-//     // credentials: true,
-//     // maxAge: 5000,
-//     // exposedHeaders: ["*", "Authorization"],
-//   })
-// );
-var corsOptions = {
-  origin: "https://gharwala-khana.vercel.app",
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://gharwala-khana.vercel.app'],
+  methods: ['GET', 'PUT', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token'],
   credentials: true,
   maxAge: 5000,
-  exposedHeaders: ["*", "Authorization"],
-}
+  exposedHeaders: ['*', 'Authorization']
+}))
+// var corsOptions = {
+//   origin: "https://gharwala-khana.vercel.app",
+//   credentials: true,
+//   allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
+//   credentials: true,
+//   maxAge: 5000,
+//   exposedHeaders: ["*", "Authorization"],
+// }
 
-app.use(cors(corsOptions));
-
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://gharwala-khana.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
 app.use(express.json());
 app.use(cookieParser());
 
@@ -90,20 +77,20 @@ app.get('/', (req, res) => {
 });
 
 
-// app.use("/api/v1/user", user);
-// app.use("/api/v1/provider", provider);
-// app.use("/api/v1/food", food);
-// app.use("/api/v1/order", order);
-// app.use("/api/v1/address", address);
-// app.use("/api/v1/review", review);
-// app.use("/api/v1/initialData", initialData);
-app.use("/user", user);
-app.use("/provider", provider);
-app.use("/food", food);
-app.use("/order", order);
-app.use("/address", address);
-app.use("/review", review);
-app.use("/initialData", initialData);
+app.use("/api/v1/user", user);
+app.use("/api/v1/provider", provider);
+app.use("/api/v1/food", food);
+app.use("/api/v1/order", order);
+app.use("/api/v1/address", address);
+app.use("/api/v1/review", review);
+app.use("/api/v1/initialData", initialData);
+// app.use("/user", user);
+// app.use("/provider", provider);
+// app.use("/food", food);
+// app.use("/order", order);
+// app.use("/address", address);
+// app.use("/review", review);
+// app.use("/initialData", initialData);
 app.listen(process.env.PORT, () => {
   console.log("Server is Running on port " + process.env.PORT);
 });

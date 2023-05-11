@@ -7,8 +7,8 @@ export const loginProvider = (provider) => async (dispatch) => {
         const config = { headers: { "Content-Type": "application/json" } };
         const providerData = await axios({
             method: "POST",
-            // url:"http://localhost:4000/api/v1/provider/login",
-            url: "https://gharwalakhanabackend.onrender.com/provider/login",
+            url: "http://localhost:4000/api/v1/provider/login",
+            //url: "https://gharwalakhanabackend.onrender.com/provider/login",
             data: provider,
             config
         })
@@ -23,8 +23,8 @@ export const providerRegister = (provider) => async (dispatch) => {
         dispatch(providerRequest());
         const providerData = await axios({
             method: "POST",
-            //   url: "http://localhost:4000/api/v1/provider/register",
-            url: "https://gharwalakhanabackend.onrender.com/provider/register",
+            url: "http://localhost:4000/api/v1/provider/register",
+            //url: "https://gharwalakhanabackend.onrender.com/provider/register",
             data: provider
         })
         return dispatch(providerRegistrationSuccess())
@@ -38,8 +38,8 @@ export const providerlogout = () => async (dispatch) => {
         dispatch(providerRequest());
         await axios({
             method: "GET",
-            //     url: "http://localhost:4000/api/v1/provider/logout",
-            url: "https://gharwalakhanabackend.onrender.com/provider/logout",
+            url: "http://localhost:4000/api/v1/provider/logout",
+            //url: "https://gharwalakhanabackend.onrender.com/provider/logout",
         })
         return dispatch(providerLogout())
     } catch (error) {
@@ -51,8 +51,8 @@ export const getAllProviders = () => async (dispatch) => {
         dispatch(providerRequest());
         const providerData = await axios({
             method: "GET",
-            //    url: "http://localhost:4000/api/v1/provider",
-            url: "https://gharwalakhanabackend.onrender.com/provider",
+            url: "http://localhost:4000/api/v1/provider",
+            //url: "https://gharwalakhanabackend.onrender.com/provider",
         })
         return dispatch(allProvidersSuccess(providerData.data))
     } catch (error) {
@@ -64,8 +64,8 @@ export const getProviderById = (id) => async (dispatch) => {
         dispatch(providerRequest())
         const provider = await axios({
             method: "GET",
-            //     url: `http://localhost:4000/api/v1/provider/${id}`
-            url: `https://gharwalakhanabackend.onrender.com/provider/${id}`
+            url: `http://localhost:4000/api/v1/provider/${id}`
+            //url: `https://gharwalakhanabackend.onrender.com/provider/${id}`
         })
         dispatch(singleProviderSuccess(provider.data))
     } catch (error) {
@@ -77,8 +77,8 @@ export const getProviderDetails = () => async (dispatch) => {
         dispatch(providerRequest());
         const providerData = await axios({
             method: "GET",
-            //  url: "http://localhost:4000/api/v1/provider/me",
-            url: "https://gharwalakhanabackend.onrender.com/provider/me",
+            url: "http://localhost:4000/api/v1/provider/me",
+            //url: "https://gharwalakhanabackend.onrender.com/provider/me",
         })
         return dispatch(providerSuccess(providerData.data))
     } catch (error) {
