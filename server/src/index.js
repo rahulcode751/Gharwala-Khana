@@ -61,6 +61,10 @@ new CronJob(
   true,
   "Asia/Kolkata"
 );
+app.get('/', (req, res) => {
+  res.send('This is our OnlineTiffin web api web App api');
+});
+
 app.use("/api/v1/user", user);
 app.use("/api/v1/provider", provider);
 app.use("/api/v1/food", food);
