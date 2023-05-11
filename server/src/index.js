@@ -62,13 +62,22 @@ new CronJob(
   true,
   "Asia/Kolkata"
 );
-app.get('/', (req, res) => {
-  // res.send('This is our Gharwala khana web api web App api');
+app.use(function (req, res, next) {
+  //Enabling CORS
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x - client - key, x - client - token, x - client - secret, Authorization");
   next();
 });
+
+app.get('/', (req, res) => {
+  res.send('This is our Gharwala khana web api web App api');
+  // res.header("Access-Control-Allow-Origin", "*");
+  // res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+  // next();
+});
+
 
 // app.use("/api/v1/user", user);
 // app.use("/api/v1/provider", provider);
