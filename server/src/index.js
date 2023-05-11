@@ -21,18 +21,32 @@ const foodModel = require("./models/food");
 const app = express();
 // env.config();
 // app.use(cors());
-app.use(
-  cors({
-    //   origin: "http://localhost:3000",
-    origin: "https://gharwala-khana.vercel.app",
-    //  origin: 
-    methods: ["GET", "PUT", "POST", "DELETE"],
-    //  allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Access-Control-Allow-Origin"],
-    // credentials: true,
-    // maxAge: 5000,
-    // exposedHeaders: ["*", "Authorization"],
-  })
-);
+// app.use(
+//   cors({
+//     //   origin: "http://localhost:3000",
+//     origin: "https://gharwala-khana.vercel.app",
+//     //  origin: 
+//     methods: ["GET", "PUT", "POST", "DELETE"],
+//     //  allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Access-Control-Allow-Origin"],
+//     // credentials: true,
+//     // maxAge: 5000,
+//     // exposedHeaders: ["*", "Authorization"],
+//   })
+// );
+var corsOptions = {
+  origin: "https://gharwala-khana.vercel.app",
+  credentials: true
+}
+
+app.use(cors(corsOptions));
+
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://gharwala-khana.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 app.use(express.json());
 app.use(cookieParser());
 
@@ -62,13 +76,6 @@ new CronJob(
   true,
   "Asia/Kolkata"
 );
-app.use(function (req, res, next) {
-  //Enabling CORS
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x - client - key, x - client - token, x - client - secret, Authorization");
-  next();
-});
 
 app.get('/', (req, res) => {
   res.send('This is our Gharwala khana web api web App api');
