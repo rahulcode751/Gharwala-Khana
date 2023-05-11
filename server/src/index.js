@@ -26,8 +26,8 @@ app.use(
     //   origin: "http://localhost:3000",
     origin: "https://gharwala-khana.vercel.app",
     //  origin: 
-    //methods: ["GET", "PUT", "POST", "DELETE"],
-    // allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Acess-Control-Allow-Origin' "],
+    methods: ["GET", "PUT", "POST", "DELETE"],
+    //  allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token", "Acess-Control-Allow-Origin' "],
     credentials: true,
     // maxAge: 5000,
     // exposedHeaders: ["*", "Authorization"],
@@ -66,13 +66,20 @@ app.get('/', (req, res) => {
   res.send('This is our OnlineTiffin web api web App api');
 });
 
-app.use("/api/v1/user", user);
-app.use("/api/v1/provider", provider);
-app.use("/api/v1/food", food);
-app.use("/api/v1/order", order);
-app.use("/api/v1/address", address);
-app.use("/api/v1/review", review);
-app.use("/api/v1/initialData", initialData);
+// app.use("/api/v1/user", user);
+// app.use("/api/v1/provider", provider);
+// app.use("/api/v1/food", food);
+// app.use("/api/v1/order", order);
+// app.use("/api/v1/address", address);
+// app.use("/api/v1/review", review);
+// app.use("/api/v1/initialData", initialData);
+app.use("/user", user);
+app.use("/provider", provider);
+app.use("/food", food);
+app.use("/order", order);
+app.use("/address", address);
+app.use("/review", review);
+app.use("/initialData", initialData);
 app.listen(process.env.PORT, () => {
   console.log("Server is Running on port " + process.env.PORT);
 });
