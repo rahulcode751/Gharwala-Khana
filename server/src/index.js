@@ -24,7 +24,7 @@ const app = express();
 app.use(
   cors({
     //   origin: "http://localhost:3000",
-    origin: "https://gharwalakhanabackend.onrender.com/",
+    origin: ["*", "https://gharwala-khana.vercel.app/"],
     //  origin: 
     methods: ["GET", "PUT", "POST", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
