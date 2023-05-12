@@ -15,7 +15,8 @@ const generateToken = (res, statusCode, user, isUser) => {
             ),
             secure: true,
             httpOnly: true,
-            domain: ".onrender.com",
+            domain: ".vercel.app",
+            sameSite: 'none',
         }
         if (text === "userToken")
             return res.status(statusCode).cookie(text, token, options).json({ success: true, user })
