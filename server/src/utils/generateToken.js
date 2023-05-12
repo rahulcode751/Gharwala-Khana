@@ -13,9 +13,9 @@ const generateToken = (res, statusCode, user, isUser) => {
             expires: new Date(
                 Date.now() + 5 * 24 * 60 * 60 * 1000
             ),
-            secure: false,
+            secure: true,
             httpOnly: true,
-            domain: ".onrender.com"
+            domain: ".onrender.com",
         }
         if (text === "userToken")
             return res.status(statusCode).cookie(text, token, options).json({ success: true, user })
