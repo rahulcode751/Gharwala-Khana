@@ -22,7 +22,7 @@ const app = express();
 // env.config();
 // app.use(cors());
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://gharwala-khana.vercel.app'],
+  origin: ['http://localhost:3000', 'https://gharwala-khana.vercel.app', 'https://gharwalakhana.onrender.com'],
   methods: ['GET', 'PUT', 'POST', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token'],
   credentials: true,
@@ -61,13 +61,13 @@ new CronJob(
   "Asia/Kolkata"
 );
 
-// app.get('/', (req, res) => {
-//   res.send('This is our Gharwala khana web api web App api');
-//   // res.header("Access-Control-Allow-Origin", "*");
-//   // res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-//   // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-//   // next();
-// });
+app.get('/', (req, res) => {
+  res.send('This is our Gharwala khana web api web App api');
+  // res.header("Access-Control-Allow-Origin", "*");
+  // res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization");
+  // next();
+});
 
 
 // app.use("/api/v1/user", user);
