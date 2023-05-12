@@ -14,11 +14,11 @@ const generateToken = (res, statusCode, user, isUser) => {
                 Date.now() + 5 * 24 * 60 * 60 * 1000
             ),
             secure: false,
-            httpOnly: true
+            httpOnly: true,
+            domain: ".onrender.com"
         }
         if (text === "userToken")
             return res.status(statusCode).cookie(text, token, options).json({ success: true, user })
-
         return res.status(statusCode).cookie(text, token, options).json({ success: true, provider: user })
     } catch (error) {
         return res.status(500).json({ message: error.message });
