@@ -27,7 +27,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'x-csrf-token', "Access-Control-Allow-Origin"],
   credentials: true,
   maxAge: 5000,
-  exposedHeaders: ['*', 'Authorization']
+  exposedHeaders: ['*', 'Authorization', "https://gharwalakhana.onrender.com"]
 }))
 
 
