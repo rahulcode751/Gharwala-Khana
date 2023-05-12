@@ -15,7 +15,7 @@ const generateToken = (res, statusCode, user, isUser) => {
             ),
             secure: true,
             httpOnly: true,
-            domain: ".onrender.com",
+            // domain: ".onrender.com",
             sameSite: 'none',
         }
         if (text === "userToken")
